@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +14,142 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZz-c4-Tsw">
+                                <rect key="frame" x="16" y="436" width="288" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="dMB-3R-Jfq"/>
+                                    <barButtonItem title="New Game" id="ZAo-Xi-oUc">
+                                        <connections>
+                                            <action selector="pressedNewGame:" destination="BYZ-38-t0r" id="6uE-ME-geb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9h-Ic-baO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="IH4-IG-cha">
+                                        <barButtonItem key="leftBarButtonItem" title="New Game" id="ec0-bD-QRP">
+                                            <connections>
+                                                <action selector="pressedNewGame:" destination="BYZ-38-t0r" id="3jY-Nx-000"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovs-bj-UV0" userLabel="Surface">
+                                <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ml5-l3-i2D" userLabel="Board">
+                                        <rect key="frame" x="20" y="83" width="280" height="310"/>
+                                        <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Ml5-l3-i2D" secondAttribute="height" multiplier="28:31" id="uLd-SO-pvf"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="uLd-SO-pvf"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="uLd-SO-pvf"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Ml5-l3-i2D" firstAttribute="leading" secondItem="ovs-bj-UV0" secondAttribute="leading" constant="20" id="NtB-Fg-XTx"/>
+                                    <constraint firstItem="Ml5-l3-i2D" firstAttribute="centerY" secondItem="ovs-bj-UV0" secondAttribute="centerY" id="PVi-VE-LIY">
+                                        <variation key="widthClass=compact" constant="30"/>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="Ml5-l3-i2D" secondAttribute="trailing" constant="20" id="tPq-Sz-IK4"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="NtB-Fg-XTx"/>
+                                        <exclude reference="PVi-VE-LIY"/>
+                                        <exclude reference="tPq-Sz-IK4"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="NtB-Fg-XTx"/>
+                                        <include reference="PVi-VE-LIY"/>
+                                        <include reference="tPq-Sz-IK4"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="a9h-Ic-baO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1pj-Cc-5SV"/>
+                            <constraint firstItem="pZz-c4-Tsw" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="6Mq-6W-cGb"/>
+                            <constraint firstItem="a9h-Ic-baO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JWS-RX-Izw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ovs-bj-UV0" secondAttribute="trailing" id="Jc1-UV-Qsj"/>
+                            <constraint firstItem="ovs-bj-UV0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Li3-Bj-gdn"/>
+                            <constraint firstItem="pZz-c4-Tsw" firstAttribute="top" secondItem="ovs-bj-UV0" secondAttribute="bottom" id="Pk5-yN-4tb"/>
+                            <constraint firstItem="ovs-bj-UV0" firstAttribute="top" secondItem="a9h-Ic-baO" secondAttribute="bottom" id="TaD-gf-lhI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a9h-Ic-baO" secondAttribute="trailing" id="ZT7-yH-buH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ovs-bj-UV0" secondAttribute="bottom" id="aO4-b4-BJn"/>
+                            <constraint firstItem="pZz-c4-Tsw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="fJl-Ka-5bm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pZz-c4-Tsw" secondAttribute="trailing" constant="16" id="syj-Du-KdW"/>
+                            <constraint firstItem="ovs-bj-UV0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tcU-dS-CTY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="pZz-c4-Tsw"/>
+                                <exclude reference="a9h-Ic-baO"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="1pj-Cc-5SV"/>
+                                <exclude reference="JWS-RX-Izw"/>
+                                <exclude reference="ZT7-yH-buH"/>
+                                <exclude reference="aO4-b4-BJn"/>
+                                <exclude reference="syj-Du-KdW"/>
+                                <exclude reference="TaD-gf-lhI"/>
+                                <exclude reference="tcU-dS-CTY"/>
+                                <exclude reference="6Mq-6W-cGb"/>
+                                <exclude reference="Pk5-yN-4tb"/>
+                                <exclude reference="fJl-Ka-5bm"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="pZz-c4-Tsw"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="syj-Du-KdW"/>
+                                <include reference="tcU-dS-CTY"/>
+                                <include reference="6Mq-6W-cGb"/>
+                                <include reference="Pk5-yN-4tb"/>
+                                <include reference="fJl-Ka-5bm"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="a9h-Ic-baO"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="1pj-Cc-5SV"/>
+                                <include reference="JWS-RX-Izw"/>
+                                <include reference="ZT7-yH-buH"/>
+                                <include reference="aO4-b4-BJn"/>
+                                <include reference="TaD-gf-lhI"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
